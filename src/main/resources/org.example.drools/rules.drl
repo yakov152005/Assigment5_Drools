@@ -1,0 +1,11 @@
+package rules
+
+import org.server.Person
+
+rule "גיל מבוגר"
+when
+    $person : Person(age > 18)
+then
+    System.out.println($person.getName() + " הוא מבוגר.");
+    modify($person) { setAdult(true) }
+end
